@@ -192,7 +192,7 @@ public class BinaryTree
                 System.out.println("Nodo encontrado en el ABB");
             }
         } else {
-            System.out.println("Nodo no encontrado en el ABB");
+            System.out.println("Nodo no encontrado en el ABB en la dirección " + node);
         }
     }
 
@@ -244,6 +244,36 @@ public class BinaryTree
             node = p;
             System.out.println("Nodo insertado en el ABB");
         }
+    }
+
+    public void deleteBinary(NodeTree node, int datum)
+    {
+        if (node != null) {
+            if (datum < node.info) {
+                deleteBinary(node.left, datum);
+            } else if (datum > node.info) {
+                deleteBinary(node.right, datum);
+            } else {
+                NodeTree q = node;
+                if (node.left == null) {
+                    node = q.right;
+                } else if (node.right == null) {
+                    node = q.left;
+                } else {
+                    NodeTree aux1 = q.left;
+                    NodeTree aux2 = aux1;
+                    while (aux1.right != null) {
+                        aux2 = aux1;
+                        aux1 = aux1.right;
+                    }
+                    q.info = aux1.info;
+                    q = aux1;
+                    aux2.right = aux1.left;
+                }
+                System.out.println("Nodo eliminado del ABB");}
+        } else {
+            System.out.println("Nodo no encontrado en el ABB");
+        } 
     }
     
 }
