@@ -81,6 +81,21 @@ public class Graphs
         return vertexVector.secuencialSearchVector(datum);
     }
 
+    // Agregar nodo adyacente a la matriz de adyacencia
+    public void addAdjacentNode()
+    {
+        int posRow;
+
+        // Seleccionar vértice (nodo)
+        posRow = selectNode();        
+        if (posRow != -1) {
+            // Seleccionar vértices (nodos) adyacentes
+            selectNodeAdjacent(posRow);
+        } else {
+            System.out.println("El vértice (nodo) no existe");
+        }
+    }
+
     public void selectNodeAdjacent(int posRow)
     {
         int datum, posCol;
@@ -116,21 +131,6 @@ public class Graphs
         } while (resp.equals("s"));
     }
 
-    // Agregar nodo adyacente a la matriz de adyacencia
-    public void addAdjacentNode()
-    {
-        int posRow;
-
-        // Seleccionar vértice (nodo)
-        posRow = selectNode();        
-        if (posRow != -1) {
-            // Seleccionar vértices (nodos) adyacentes
-            selectNodeAdjacent(posRow);
-        } else {
-            System.out.println("El vértice (nodo) no existe");
-        }
-    }
-
     public void showAdjacentNodes(int posRow)
     {
         System.out.println("Nodos adyacentes:");
@@ -139,6 +139,25 @@ public class Graphs
                 System.out.println("Nodo: " + vertexVector.getVec(i) + 
                     " - Valor de adyacencia: " + adjacencyMatrix.getMat(posRow, i));
             }
+        }
+    }
+
+    public void deleteNode(int pos)
+    {
+        vertexVector.deleteVector(pos);
+        adjacencyMatrix.deleteRow(pos);
+        adjacencyMatrix.deleteColumn(pos);
+    }
+
+    public void maxAdjacentNodes()
+    {
+        Matrix.MaximunAdjacentNodes man;
+        man = adjacencyMatrix.maxValuesNoZero();
+        if (man.vertex > -1) {
+            System.out.println("Nodo con mayor adyacencia: " + vertexVector.getVec(man.vertex));
+            System.out.println("Número de nodos adyacentes: " + man.max);
+        } else {
+            System.out.println("No se ha asignado adyacencia a los nodos");
         }
     }
     

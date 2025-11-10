@@ -175,4 +175,22 @@ public class Vector
         }
     }
 
+    public void deleteVector(int pos)
+    {
+        for (int i = pos; i < n - 1; i++) {
+            vec[i] = vec[i + 1];
+        }
+        n--;
+        vec[n] = 0;
+    }
+
+    public void insertVector(int datum, int pos)
+    {
+        for (int i = n; i > pos; i--) {
+            vec[i] = vec[i - 1];
+        }
+        vec[pos] = datum;
+        n++;
+    }
+
 }

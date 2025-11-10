@@ -1138,7 +1138,9 @@ public class HelloWorld
         String op, datum;
         do {
             System.out.println("");
-            System.out.println("Menú Cadenas de Caracteres");
+            System.out.println("------------------------------");
+            System.out.println("| Menú Cadenas de Caracteres |");
+            System.out.println("------------------------------");
             System.out.println("0. Regresar");
             System.out.println("1. Ingresar cadena");
             System.out.println("2. Mostrar cadena");
@@ -1179,7 +1181,9 @@ public class HelloWorld
         String op, datum;
         do {
             System.out.println("");
-            System.out.println("Menú Objetos como registros");
+            System.out.println("-------------------------------");
+            System.out.println("| Menú Objetos como registros |");
+            System.out.println("-------------------------------");
             System.out.println("0. Regresar");
             System.out.println("1. Agregar objetos (registros) al arreglo");
             System.out.println("2. Mostrar arreglo");
@@ -1212,17 +1216,18 @@ public class HelloWorld
         String op;
         int datum;
         do {
-            System.out.println("\n");
-            System.out.println("Menú Grafos");
+            System.out.println("");
+            System.out.println("---------------");
+            System.out.println("| Menú Grafos |");
+            System.out.println("---------------");
             System.out.println("0. Regresar");
             System.out.println("1. Agregar vértice (nodo)");
             System.out.println("2. Mostrar lista de vértices");
             System.out.println("3. Agregar/modificar nodos adyacentes");
             System.out.println("4. Mostrar matriz de adyacencia");
             System.out.println("5. Mostrar nodos adyacentes de un vértice (nodo)");
-            // System.out.println("2. Mostrar matriz de incidencia");
-            // System.out.println("4. Mostrar lista de incidencia");
-            // System.out.println("5. Mostrar lista de adyacencia");
+            System.out.println("6. Eliminar nodo");
+            System.out.println("7. Máximo número nodos adyacentes");
             System.out.print("Ingrese su opción: ");
             op = input.nextLine();
 
@@ -1268,6 +1273,26 @@ public class HelloWorld
                         } else {
                             System.out.println("El vértice (nodo) no existe");
                         }
+                    } else {
+                        System.out.println("No hay vértices agregados");
+                    }
+                    break;
+                case "6":
+                    if (graph.vertexVector.getN() > 0) {
+                        datum = graph.selectNode();
+                        if (datum != -1) {
+                            graph.deleteNode(datum);
+                            System.out.println("Vértice (nodo) eliminado");
+                        } else {
+                            System.out.println("El vértice (nodo) no existe");
+                        }
+                    } else {
+                        System.out.println("No hay vértices agregados");
+                    }
+                    break;
+                case "7":
+                    if (graph.vertexVector.getN() > 0) {
+                        graph.maxAdjacentNodes();
                     } else {
                         System.out.println("No hay vértices agregados");
                     }

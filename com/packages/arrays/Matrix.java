@@ -118,4 +118,66 @@ public class Matrix
             System.out.println(this.mat[i][this.m - i -1]);
         }
     }
+
+    public void deleteRow(int row)
+    {
+        int i, j; 
+        for (i = row; i < m - 1; i++) {
+            for (j = 0; j < n; j++) {
+                mat[i][j] = mat[i + 1][j]; 
+            }
+        } 
+        m--;
+        for (i = 0; i < n; i++) {
+            mat[m][i] = 0;
+        } 
+    }
+
+    public void deleteColumn(int col)
+    {
+        int i, j;
+        for (i = col; i < n - 1; i++) {
+            for (j = 0; j < m; j++) {
+                mat[j][i] = mat[j][i + 1]; 
+            }
+        } 
+        n--;
+        for (i = 0; i < m; i++) {
+            mat[i][n] = 0;
+        }
+    }
+
+    // Encuentra el mayor número de celdas mayores a cero por filas
+    public MaximunAdjacentNodes maxValuesNoZero()
+    {
+        int i, j, c;
+        MaximunAdjacentNodes man = new MaximunAdjacentNodes();
+        
+        for (i = 0; i < m; i++) {
+            c = 0;
+            for (j = 0; j < n; j++) {
+                if (mat[i][j] > 0) {
+                    c++;
+                }
+            }
+            if (c > man.max) {
+                man.max = c;
+                man.vertex = i;
+            } 
+        }
+        return man;
+    }
+
+    // Clase anidada para gestionar el vértice con mayor número de adyacencia y a cuánto equivale ésta
+    public class MaximunAdjacentNodes 
+    {
+        public int max;
+        public int vertex;
+
+        public MaximunAdjacentNodes()
+        {
+            max = 0;
+            vertex = -1;
+        }
+    }
 }
