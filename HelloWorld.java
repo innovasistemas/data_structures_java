@@ -1002,7 +1002,8 @@ public class HelloWorld
     {
         NodeTree root = new NodeTree();
         BinaryTree tree = new BinaryTree();
-        String op; 
+        String op;
+        int datum; 
         do {
             System.out.println("");
             System.out.println("-------------------------");
@@ -1020,6 +1021,8 @@ public class HelloWorld
             System.out.println("9. Total Nodos");
             System.out.println("10. Nodos en vector");
             System.out.println("11. Mostrar y contar hojas");
+            System.out.println("12. Insertar binario");
+            System.out.println("13. Eliminar hojas");
             // System.out.println("10. Nodos pares en vector");
             System.out.println("L. Limpiar pantalla");
             System.out.print("Ingrese la opción: ");
@@ -1103,6 +1106,24 @@ public class HelloWorld
                         System.out.println("Total hojas: " + tree.countLeaves(root));
                     } else {
                         System.out.println("Debe crear el árbol para totalizar la cantidad de hojas");
+                    }
+                    break;
+                case "12":
+                    if (root != null) {
+                        System.out.print("Dato a insertar: ");
+                        datum = input.nextInt();
+                        input.nextLine();
+                        tree.insertBinary(root, datum);
+                    } else {
+                        System.out.println("Debe crear el árbol para totalizar la cantidad de hojas");
+                    }
+                    break;
+                case "13":
+                    if (root != null) {
+                        tree.deleteLeaves(root);
+                        System.out.println("Se eliminaron la hojas actuales");
+                    } else {
+                        System.out.println("Debe crear el árbol para eliminar sus hojas");
                     }
                     break;
                 // case "11":

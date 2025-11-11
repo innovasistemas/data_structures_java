@@ -124,6 +124,25 @@ public class BinaryTree
         }
     }
 
+    
+    public void deleteLeaves(NodeTree node)
+    {
+        if (node != null) {
+            if (node.left != null) {
+                if (node.left.left == null && node.left.right == null) {
+                    node.left = null;
+                }
+            }
+            if (node.right != null) {
+                if (node.right.left == null && node.right.right == null) {
+                    node.right = null;
+                }
+            }
+            deleteLeaves(node.left);
+            deleteLeaves(node.right);
+        }
+    }
+
 
     public void nodesArray(NodeTree node, int v[], int pos[])
     {
@@ -230,9 +249,9 @@ public class BinaryTree
     {
         if (node != null) {
             if (datum < node.info) {
-                insertBinary(node.left, datum);
+                insertBinary2(node.left, datum);
             } else if (datum > node.info) {
-                insertBinary(node.right, datum);
+                insertBinary2(node.right, datum);
             } else {
                 System.out.println("El nodo ya se encuentra en el ABB");
             }
