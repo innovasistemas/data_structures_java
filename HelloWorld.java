@@ -346,8 +346,9 @@ public class HelloWorld
             System.out.println("0. Regresar");
             System.out.println("1. Crear matriz");
             System.out.println("2. Mostrar matriz");
-            System.out.println("3. Mostrar diagonal principal");
-            System.out.println("4. Mostrar diagonal secundaria");
+            System.out.println("3. Diagonal principal");
+            System.out.println("4. Diagonal secundaria");
+            System.out.println("5. Mostrar matriz transpuesta (sin crearla)");
             System.out.print("Ingrese la opción: ");
             op = input.next();
             switch (op) {
@@ -361,7 +362,7 @@ public class HelloWorld
                     if (m > 0 && m <= 20 && n > 0 && n <= 20) {
                         matrix.setM(m);
                         matrix.setN(n);
-                        matrix.createMatrix();
+                        matrix.createMatrix(100, 0);
                     } else {
                         System.out.println("Tamaño no válido");
                     }
@@ -369,8 +370,6 @@ public class HelloWorld
                 case "2":
                     if (matrix.getM() > 0 && matrix.getN() > 0) {
                         matrix.showMatrix();
-                        System.out.println("");
-                        matrix.showMatrixColumns();
                     } else {
                         System.out.println("La matriz no ha sido creada");
                     }
@@ -391,6 +390,15 @@ public class HelloWorld
                         matrix.secondaryDiagonal();
                     } else {
                         System.out.println("La matriz debe ser cuadrada");
+                    }
+                    break;
+                case "5":
+                    if (matrix.getM() > 0 && matrix.getN() > 0) {
+                        matrix.transposedMatrix();
+                        System.out.println("");
+                        matrix.secondaryDiagonal();
+                    } else {
+                        System.out.println("La matriz no ha sido creada");
                     }
                     break;
                 default: 
@@ -943,6 +951,8 @@ public class HelloWorld
             System.out.println("5. Suma números naturales");
             System.out.println("6. Cuadrados números naturales");
             System.out.println("7. Suma cuadrados números naturales");
+            System.out.println("8. Ackermann");
+            System.out.println("9. MCD");
             System.out.print("Ingrese la opción: ");
             op = input.next();
 
@@ -990,6 +1000,16 @@ public class HelloWorld
                     datum = input.nextInt();
                     System.out.println("La suma de cuadrados de 1 a " + datum + " es: " + 
                         rec.sumSquare(datum));
+                    break;
+                case "8":
+                    // System.out.print("Ingrese n: ");
+                    // datum = input.nextInt();
+                    System.out.println("Ackermann: " + rec.Ackermann(2, 7));
+                    break;
+                case "9":
+                    // System.out.print("Ingrese n: ");
+                    // datum = input.nextInt();
+                    System.out.println("MCD: " + rec.mcdEuclidesRecursive(2, 7));
                     break;
                 default:
                     break;

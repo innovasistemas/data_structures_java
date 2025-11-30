@@ -1,5 +1,7 @@
 package com.packages.arrays;
 
+import com.packages.mathematics.*;
+
 public class Matrix 
 {
     private final int MAX_ROWS = 50;
@@ -71,12 +73,12 @@ public class Matrix
      * Crear una matriz de m*n con números enteros 
      * aleatorios
      */
-    public void createMatrix()
+    public void createMatrix(int maxLim, int minLim)
     {
         int i, j;
         for (i = 0; i < this.m; i++) {
             for (j = 0; j < this.n; j++) {
-                this.mat[i][j] = (int) (Math.random() * 100);
+                this.mat[i][j] = Maths.randomBetween(maxLim, minLim);
             }
         }
     }
@@ -92,7 +94,7 @@ public class Matrix
         }
     }
 
-    public void showMatrixColumns()
+    public void transposedMatrix()
     {
         int i, j;
         for (i = 0; i < this.n; i++) {
@@ -101,6 +103,18 @@ public class Matrix
             }
             System.out.print("\n\r");
         }
+        // Para crearla e imprimirla
+        // for (i = 0; i < m; i++) {
+        //     for (j = 0; j < n; j++) {
+        //         mat2[j][i] = mat[i][j];
+        //     }
+        // }
+        // for (i = 0; i < n; i++) {
+        //     for (j = 0; j < m; j++) {
+        //         System.out.print(mat2[i][j] + "\t");
+        //     }
+        //     System.out.print("\n\r");
+        // }
     }
 
     public void mainDiagonal()

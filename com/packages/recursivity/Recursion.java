@@ -11,7 +11,6 @@ public class Recursion
         }
     }
 
-
     public int fibonacci(int n)
     {
         if (n < 2) {
@@ -20,7 +19,6 @@ public class Recursion
             return fibonacci(n - 1) + fibonacci(n - 2);
         }
     }
-
 
     public double capital(double amount, int numYear, double percentage) 
     {
@@ -33,7 +31,6 @@ public class Recursion
         return currentCapital;
     }
 
-
     public int showNaturalNumbers(int n)
     {
         System.out.println(n);
@@ -44,7 +41,6 @@ public class Recursion
         }
     }
 
-
     public int sumNaturalNumbers(int n)
     {
         if (n == 1) {
@@ -53,7 +49,6 @@ public class Recursion
             return n + sumNaturalNumbers(n - 1);
         }
     }
-
 
     public int showSquare(int n)
     {
@@ -65,7 +60,6 @@ public class Recursion
         }
     }
 
-
     public int sumSquare(int n)
     {
         if (n == 1) {
@@ -75,6 +69,14 @@ public class Recursion
         }
     }
 
+    public int mcdEuclidesRecursive(int a, int b)
+    {
+        if (b == 0) {
+            return a;
+        } else {
+            return mcdEuclidesRecursive(b, a % b);
+        }
+    }
 
     public int Ackermann(int m, int n)
     {
